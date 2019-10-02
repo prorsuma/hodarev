@@ -9,7 +9,7 @@
         "secondaryColor": "#f36142",
         "successColor": "#0ace7c",
         "infoColor": "#717ebe",
-        "warningColor": "#FEA95E",
+        "warningColor": "#2969b0",
         "dangerColor": "#ffffff",
         "mainFont": "Lato",
         "display1Font": "Lato",
@@ -25,13 +25,15 @@
       },
       "titlePreset": "Car Repair Shop",
       "nameSelectPreset": "carrepair",
-      "additionalSetColors": []
+      "additionalSetColors": [
+        "#2969b0"
+      ]
     },
     "path": "@PROJECT_PATH@",
     "name": "Holding",
     "versionFirst": "4.10.15",
     "siteFonts": [],
-    "uniqCompNum": 10,
+    "uniqCompNum": 18,
     "versionPublish": "4.10.15",
     "screenshot": "screenshot.png",
     "cookiesAlert": {
@@ -228,6 +230,36 @@
           "_params": {}
         },
         {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              ".mbr-overlay": {
+                "background-color": "@overlayColor",
+                "opacity": "@overlayOpacity"
+              }
+            },
+            "@media (max-width: 768px)": {
+              ".title-wrap": {
+                "padding-bottom": "2rem"
+              }
+            }
+          },
+          "_name": "article1",
+          "_customHTML": "<section class=\"article1\" group=\"Article\" plugins=\"amp-main\">\n    <mbr-parameters>\n    <!--Block parameters controls (Blue \"Gear\" panel) -->\n    <header>Size</header>\n    <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n    <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n    <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n    <select title=\"Align\" name=\"titleAlign\" condition=\"showTitle || showSubtitle\">\n        <option value=\"1\" selected>Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\" required>\n        <input type=\"image\" title=\"Background Image\" value=\"../_images/background2.jpg\">\n        <input type=\"color\" title=\"Background Color\" value=\"#efefef\" selected>\n    </fieldset>\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" checked condition=\"bg.type !== 'color'\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#efefef\" condition=\"overlay && bg.type == 'image'\">\n    <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay && bg.type == 'image'\">\n    </mbr-parameters>\n    <!--Block parameters controls (Blue \"Gear\" panel) -->\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\"></div>\n    <div class=\"container\">\n        <div class=\"title\" mbr-class=\"{'align-center':titleAlign==2,\n                         'align-right':titleAlign==3}\" mbr-if=\"showTitle || showSubtitle\">\n            <h4 class=\"mbr-text text-primary mbr-bold mbr-fonts-style mbr-pb-1\" mbr-theme-style=\"display-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-text\">Exclusive Car Tuning</h4>\n            <h3 class=\"mbr-section-title mbr-fonts-style mbr-bolder\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">EXPLORE OUR PROJECTS BELLOW</h3>\n        </div>\n    </div>\n</section>",
+          "_cid": "rDKsiwUm0a",
+          "_anchor": "article1-d",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
           "_styles": {
             "& when not (@fullScreen)": {
               "padding-top": "(@paddingTop * 1rem)",
@@ -305,7 +337,7 @@
             }
           },
           "_name": "article3",
-          "_customHTML": "<section class=\"article3\" group=\"Articles\" mbr-class=\"{'mbr-fullscreen': fullScreen}\" plugins=\"amp-main\">\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"15\" step=\"1\" value=\"4\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"15\" step=\"1\" value=\"4\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline title=\"Content Width\" name=\"columnWidth\" min=\"1\" max=\"3\" step=\"1\" value=\"1\" required>\n    <input type=\"range\" inline title=\"Card Position\" name=\"cardPosition\" min=\"120\" max=\"340\" step=\"20\" value=\"240\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n    <input type=\"checkbox\" title=\"Card Title\" name=\"showCardTitle\">\n    <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\" checked>\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n    <input type=\"checkbox\" title=\"Link\" name=\"showLink\" checked>\n    <!--  -->\n    <header condition=\"showTitle || showSubtitle || showText || showLink\">Align</header>\n    <select title=\"Title\" name=\"alignTitle\" condition=\"showTitle || showSubtitle || showText || showLink\">\n        <option value=\"1\" selected>Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <select title=\"Card\" name=\"alignCard\" condition=\"showTitle || showSubtitle || showText || showLink\">\n        <option value=\"1\" selected>Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>    \n    <header>Background</header>\n    <input type=\"color\" name=\"cardBg\" title=\"Card Background\" value=\"#efefef\">\n    <fieldset type=\"background\" name=\"bg\" required>\n        <input type=\"image\" title=\"Background Image\" value=\"../_images/background3.jpg\">\n        <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n    </fieldset>\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay && bg.type !== 'color'\">\n    <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay && bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container':!fullWidth,\n                     'container-fluid': fullWidth}\">\n        <div class=\"mbr-row mbr-pb-auto\">           \n            <div class=\"title-wrap title-block mbr-col-sm-12 mbr-flex flex-wrap\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5':columnWidth==1,\n                             'mbr-col-lg-6 mbr-col-md-6':columnWidth==2,\n                             'mbr-col-lg-7 mbr-col-md-7':columnWidth==3}\" mbr-if=\"showTitle || showSubtitle || showText || showLink\">\n                <h1 class=\"mbr-section-title mbr-fonts-style mbr-bolder mbr-pt-5\" mbr-class=\"{'align-left':alignTitle==1,\n                                'align-center':alignTitle==2,\n                                'align-right':alignTitle==3}\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">OUR PROJECTS</h1>\n                <div class=\"float-card mbr-p-5\" mbr-class=\"{'align-left':alignCard==1,\n                                 'align-center':alignCard==2,\n                                 'align-right':alignCard==3}\">\n                    <h3 class=\"mbr-section-subtitle text-primary mbr-fonts-style mbr-pb-1 mbr-bolder\" mbr-theme-style=\"display-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">PRORSUM - &nbsp;ANALITYCS</h3>\n                    <h2 class=\"mbr-section-cardtitle mbr-fonts-style mbr-bolder\" mbr-theme-style=\"display-5\" mbr-if=\"showCardTitle\" data-app-selector=\".mbr-section-subtitle\">Exhaust repair.</h2>    \n                    <p class=\"mbr-text mbr-fonts-style fs-11 mbr-regular\" mbr-class=\"{'mbr-pt-2': showCardTitle || showSubtitle}\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">Organizing workflow in companie, review the funnel and create a reports for each traffic type and integrated chat option - for inside communication.</p>\n                    <p class=\"link-ws-black link-primary mbr-bold\" mbr-class=\"{'mbr-pt-4':showSubtitle||showCardTitle||showText}\" mbr-if=\"showLink\" mbr-theme-style=\"display-4\" data-app-selector=\".link-ws-black a\"><a href=\"http://prorsuma.xezero.com/\">\n                        — View Project</a></p>\n                </div>\n            </div>\n            <div class=\"image-wrap mbr-col-sm-12 mbr-flex\" mbr-class=\"{'mbr-col-lg-7 mbr-col-md-7':columnWidth==1,\n                             'mbr-col-lg-6 mbr-col-md-6':columnWidth==2,\n                             'mbr-col-lg-5 mbr-col-md-5':columnWidth==3}\">\n                <div class=\"image-block mbr-col-md-12 mbr-col-sm-12 mbr-m-auto\">\n                    <amp-img src=\"@PROJECT_PATH@/assets/images/prorsuma-1240x477.png\" layout=\"responsive\" width=\"620.5369928400954\" height=\"349\" alt=\"image\" class=\"placeholder-loader raised\">\n                        <div placeholder class=\"placeholder\"></div>\n                        <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/prorsuma-1240x477.png\" alt title>\n                    </amp-img>\n                </div>\n            </div>             \n        </div>\n    </div>\n</section>",
+          "_customHTML": "<section class=\"article3\" group=\"Articles\" mbr-class=\"{'mbr-fullscreen': fullScreen}\" plugins=\"amp-main\">\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"15\" step=\"1\" value=\"4\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"15\" step=\"1\" value=\"4\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline=\"\" title=\"Content Width\" name=\"columnWidth\" min=\"1\" max=\"3\" step=\"1\" value=\"1\" required=\"\">\n    <input type=\"range\" inline=\"\" title=\"Card Position\" name=\"cardPosition\" min=\"120\" max=\"340\" step=\"20\" value=\"240\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Card Title\" name=\"showCardTitle\">\n    <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked=\"\">\n    <input type=\"checkbox\" title=\"Link\" name=\"showLink\" checked=\"\">\n    <!--  -->\n    <header condition=\"showTitle || showSubtitle || showText || showLink\">Align</header>\n    <select title=\"Title\" name=\"alignTitle\" condition=\"showTitle || showSubtitle || showText || showLink\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <select title=\"Card\" name=\"alignCard\" condition=\"showTitle || showSubtitle || showText || showLink\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>    \n    <header>Background</header>\n    <input type=\"color\" name=\"cardBg\" title=\"Card Background\" value=\"#efefef\">\n    <fieldset type=\"background\" name=\"bg\" required=\"\">\n        <input type=\"image\" title=\"Background Image\" value=\"../_images/background3.jpg\">\n        <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected=\"\">\n    </fieldset>\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked=\"\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container':!fullWidth,\n                     'container-fluid': fullWidth}\">\n        <div class=\"mbr-row mbr-pb-auto\">           \n            <div class=\"title-wrap title-block mbr-col-sm-12 mbr-flex flex-wrap\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5':columnWidth==1,\n                             'mbr-col-lg-6 mbr-col-md-6':columnWidth==2,\n                             'mbr-col-lg-7 mbr-col-md-7':columnWidth==3}\" mbr-if=\"showTitle || showSubtitle || showText || showLink\">\n                <h1 class=\"mbr-section-title mbr-fonts-style mbr-bolder mbr-pt-5\" mbr-class=\"{'align-left':alignTitle==1,\n                                'align-center':alignTitle==2,\n                                'align-right':alignTitle==3}\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">RED PROJECTS</h1>\n                <div class=\"float-card mbr-p-5\" mbr-class=\"{'align-left':alignCard==1,\n                                 'align-center':alignCard==2,\n                                 'align-right':alignCard==3}\">\n                    <h3 class=\"mbr-section-subtitle text-primary mbr-fonts-style mbr-pb-1 mbr-bolder\" mbr-theme-style=\"display-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">PRORSUM - &nbsp;ANALITYCS</h3>\n                    <h2 class=\"mbr-section-cardtitle mbr-fonts-style mbr-bolder\" mbr-theme-style=\"display-5\" mbr-if=\"showCardTitle\" data-app-selector=\".mbr-section-subtitle\">Exhaust repair.</h2>    \n                    <p class=\"mbr-text mbr-fonts-style fs-11 mbr-regular\" mbr-class=\"{'mbr-pt-2': showCardTitle || showSubtitle}\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">Organizing workflow in companie, review the funnel and create a reports for each traffic type and integrated chat option - for inside communication.</p>\n                    <p class=\"link-ws-black link-primary mbr-bold\" mbr-class=\"{'mbr-pt-4':showSubtitle||showCardTitle||showText}\" mbr-if=\"showLink\" mbr-theme-style=\"display-4\" data-app-selector=\".link-ws-black a\"><a href=\"http://prorsuma.xezero.com/\">\n                        — View Project</a></p>\n                </div>\n            </div>\n            <div class=\"image-wrap mbr-col-sm-12 mbr-flex\" mbr-class=\"{'mbr-col-lg-7 mbr-col-md-7':columnWidth==1,\n                             'mbr-col-lg-6 mbr-col-md-6':columnWidth==2,\n                             'mbr-col-lg-5 mbr-col-md-5':columnWidth==3}\">\n                <div class=\"image-block mbr-col-md-12 mbr-col-sm-12 mbr-m-auto\">\n                    <amp-img src=\"@PROJECT_PATH@/assets/images/prorsuma-1240x477.png\" layout=\"responsive\" width=\"620.5369928400954\" height=\"349\" alt=\"image\" class=\"placeholder-loader raised\">\n                        <div placeholder=\"\" class=\"placeholder\"></div>\n                        <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/prorsuma-1240x477.png\" alt=\"\" title=\"\">\n                    </amp-img>\n                </div>\n            </div>             \n        </div>\n    </div>\n</section>",
           "_cid": "rgxP5IVmBB",
           "_anchor": "article3-1e",
           "_protectedParams": [],
@@ -718,12 +750,440 @@
             },
             ".fs-11": {
               "font-size": "1.1rem"
+            },
+            ".mbr-section-subtitle": {
+              "color": "#711f8e"
             }
           },
           "_name": "article2",
           "_customHTML": "<section class=\"article2\" group=\"Articles\" mbr-class=\"{'mbr-fullscreen': fullScreen}\" plugins=\"amp-main\">\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"15\" step=\"1\" value=\"4\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"15\" step=\"1\" value=\"4\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline=\"\" title=\"Content Width\" name=\"columnWidth\" min=\"1\" max=\"3\" step=\"1\" value=\"1\" required=\"\">\n    <input type=\"range\" inline=\"\" title=\"Card Position\" name=\"cardPosition\" min=\"120\" max=\"340\" step=\"20\" value=\"240\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n    <input type=\"checkbox\" title=\"Card Title\" name=\"showCardTitle\">\n    <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked=\"\">\n    <input type=\"checkbox\" title=\"Link\" name=\"showLink\" checked=\"\">\n    <!--  -->\n    <header condition=\"showTitle || showSubtitle || showText || showLink\">Align</header>\n    <select title=\"Title\" name=\"alignTitle\" condition=\"showTitle || showSubtitle || showText || showLink\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <select title=\"Card\" name=\"alignCard\" condition=\"showTitle || showSubtitle || showText || showLink\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>    \n    <header>Background</header>\n    <input type=\"color\" name=\"cardBg\" title=\"Card Background\" value=\"#efefef\">\n    <fieldset type=\"background\" name=\"bg\" required=\"\">\n        <input type=\"image\" title=\"Background Image\" value=\"../_images/background3.jpg\">\n        <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected=\"\">\n    </fieldset>\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked=\"\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container':!fullWidth,\n                     'container-fluid': fullWidth}\">\n        <div class=\"mbr-row mbr-pb-auto\">\n            <div class=\"image-wrap mbr-col-sm-12 mbr-flex\" mbr-class=\"{'mbr-col-lg-7 mbr-col-md-7':columnWidth==1,\n                             'mbr-col-lg-6 mbr-col-md-6':columnWidth==2,\n                             'mbr-col-lg-5 mbr-col-md-5':columnWidth==3}\">\n                <div class=\"image-block mbr-col-md-12 mbr-col-sm-12 mbr-m-auto\">\n                    <amp-img src=\"@PROJECT_PATH@/assets/images/direct-1-1193x788.png\" layout=\"responsive\" width=\"620.5030211480362\" height=\"349\" alt=\"image\" class=\"mobirise-loader raised\">\n                        <div placeholder=\"\" class=\"placeholder\"></div>\n                        <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/direct-1-1193x788.png\" alt=\"\" title=\"\">\n                    </amp-img>\n                </div>\n            </div>            \n            <div class=\"title-wrap title-block mbr-col-sm-12 mbr-flex flex-wrap\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5':columnWidth==1,\n                             'mbr-col-lg-6 mbr-col-md-6':columnWidth==2,\n                             'mbr-col-lg-7 mbr-col-md-7':columnWidth==3}\" mbr-if=\"showTitle || showSubtitle || showText || showLink\">\n                <h1 class=\"mbr-section-title mbr-fonts-style mbr-bolder mbr-pt-5\" mbr-class=\"{'align-left':alignTitle==1,\n                                'align-center':alignTitle==2,\n                                'align-right':alignTitle==3}\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">EXHAUST</h1>\n                <div class=\"float-card mbr-p-5\" mbr-class=\"{'align-left':alignCard==1,\n                                 'align-center':alignCard==2,\n                                 'align-right':alignCard==3}\">\n                    <h3 class=\"mbr-section-subtitle text-primary mbr-fonts-style mbr-pb-1 mbr-bolder\" mbr-theme-style=\"display-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">ANTEHIT - AFFELIATE NETWORK</h3>\n                    <h2 class=\"mbr-section-cardtitle mbr-fonts-style mbr-bolder\" mbr-theme-style=\"display-5\" mbr-if=\"showCardTitle\" data-app-selector=\".mbr-section-subtitle\">Exhaust repair.</h2>    \n                    <p class=\"mbr-text mbr-fonts-style fs-11 mbr-regular\" mbr-class=\"{'mbr-pt-2': showCardTitle || showSubtitle}\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">Affeliate network for traffic providers and order/service suppliers.Community basedsystem - for monitoring traffic results from each company and analizing traffic quality.</p>\n                    <p class=\"link-ws-black link-primary mbr-bold\" mbr-class=\"{'mbr-pt-4':showSubtitle||showCardTitle||showText}\" mbr-if=\"showLink\" mbr-theme-style=\"display-4\" data-app-selector=\".link-ws-black a\"><a href=\"https://prorsuma.github.io/antehit/\">\n                        — View Project\n                    </a></p>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
           "_cid": "rD7TLHbzWr",
           "_anchor": "article2-5",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)",
+              "align-items": "center",
+              "display": "flex"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              "& when (@overlay)": {
+                ".mbr-overlay": {
+                  "background": "@overlayColor",
+                  "opacity": "@overlayOpacity"
+                }
+              }
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".title-block": {
+              "position": "relative"
+            },
+            ".float-card": {
+              "background-color": "@cardBg",
+              "@media (min-width: 991px)": {
+                "width": "100%",
+                "position": "absolute",
+                "top": "(@cardPosition * 1px)",
+                "right": "-200px",
+                "z-index": "1"
+              }
+            },
+            ".mbr-p-5": {
+              "@media (max-width: 991px)": {
+                "padding": "2rem"
+              }
+            },
+            ".mbr-row": {
+              "@media (max-width: 992px)": {
+                ".image-wrap": {
+                  "padding-bottom": "2rem"
+                },
+                ".mbr-section-title": {
+                  "padding-bottom": "1rem"
+                }
+              }
+            },
+            ".mbr-row > *": {
+              "@media (max-width: 768px)": {
+                "padding": "0"
+              }
+            },
+            "@media (min-width: 992px)": {
+              ".image-block": {
+                "padding-left": "0",
+                "padding-right": "0"
+              },
+              ".mbr-row > *": {
+                "padding-left": "2rem",
+                "padding-right": "2rem"
+              },
+              ".mbr-row": {
+                "margin-left": "-2rem",
+                "margin-right": "-2rem"
+              },
+              ".mbr-pb-auto": {
+                "padding-bottom": "(@cardPosition * 0.5px)"
+              }
+            },
+            ".fs-11": {
+              "font-size": "1.1rem"
+            },
+            ".mbr-section-subtitle": {
+              "color": "#2969b0",
+              "text-align": "left"
+            }
+          },
+          "_name": "article3",
+          "_customHTML": "<section class=\"article3\" group=\"Articles\" mbr-class=\"{'mbr-fullscreen': fullScreen}\" plugins=\"amp-main\">\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"15\" step=\"1\" value=\"4\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"15\" step=\"1\" value=\"4\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline=\"\" title=\"Content Width\" name=\"columnWidth\" min=\"1\" max=\"3\" step=\"1\" value=\"1\" required=\"\">\n    <input type=\"range\" inline=\"\" title=\"Card Position\" name=\"cardPosition\" min=\"120\" max=\"340\" step=\"20\" value=\"240\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Card Title\" name=\"showCardTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\">\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked=\"\">\n    <input type=\"checkbox\" title=\"Link\" name=\"showLink\" checked=\"\">\n    <!--  -->\n    <header condition=\"showTitle || showSubtitle || showText || showLink\">Align</header>\n    <select title=\"Title\" name=\"alignTitle\" condition=\"showTitle || showSubtitle || showText || showLink\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <select title=\"Card\" name=\"alignCard\" condition=\"showTitle || showSubtitle || showText || showLink\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>    \n    <header>Background</header>\n    <input type=\"color\" name=\"cardBg\" title=\"Card Background\" value=\"#efefef\">\n    <fieldset type=\"background\" name=\"bg\" required=\"\">\n        <input type=\"image\" title=\"Background Image\" value=\"../_images/background3.jpg\">\n        <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected=\"\">\n    </fieldset>\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked=\"\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container':!fullWidth,\n                     'container-fluid': fullWidth}\">\n        <div class=\"mbr-row mbr-pb-auto\">           \n            <div class=\"title-wrap title-block mbr-col-sm-12 mbr-flex flex-wrap\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5':columnWidth==1,\n                             'mbr-col-lg-6 mbr-col-md-6':columnWidth==2,\n                             'mbr-col-lg-7 mbr-col-md-7':columnWidth==3}\" mbr-if=\"showTitle || showSubtitle || showText || showLink\">\n                <h1 class=\"mbr-section-title mbr-fonts-style mbr-bolder mbr-pt-5\" mbr-class=\"{'align-left':alignTitle==1,\n                                'align-center':alignTitle==2,\n                                'align-right':alignTitle==3}\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">BLUE PROJECTS</h1>\n                <div class=\"float-card mbr-p-5\" mbr-class=\"{'align-left':alignCard==1,\n                                 'align-center':alignCard==2,\n                                 'align-right':alignCard==3}\">\n                    <h3 class=\"mbr-section-subtitle text-primary mbr-fonts-style mbr-pb-1 mbr-bolder\" mbr-theme-style=\"display-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">Lorem ipsum</h3>\n                    <h2 class=\"mbr-section-cardtitle mbr-fonts-style mbr-bolder\" mbr-theme-style=\"display-7\" mbr-if=\"showCardTitle\" data-app-selector=\".mbr-section-subtitle\">BULLLAB - RESEARCH CENTR</h2>    \n                    <p class=\"mbr-text mbr-fonts-style fs-11 mbr-regular\" mbr-class=\"{'mbr-pt-2': showCardTitle || showSubtitle}\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">We belive that great product are born in great team and our team of experts are working hard to delliver the best results on the market.</p>\n                    <p class=\"link-ws-black link-primary mbr-bold\" mbr-class=\"{'mbr-pt-4':showSubtitle||showCardTitle||showText}\" mbr-if=\"showLink\" mbr-theme-style=\"display-4\" data-app-selector=\".link-ws-black a\">\n                        <a href=\"https://prorsuma.github.io/schedulebull/\" class=\"text-warning\">— View Project</a>\n                    </p>\n                </div>\n            </div>\n            <div class=\"image-wrap mbr-col-sm-12 mbr-flex\" mbr-class=\"{'mbr-col-lg-7 mbr-col-md-7':columnWidth==1,\n                             'mbr-col-lg-6 mbr-col-md-6':columnWidth==2,\n                             'mbr-col-lg-5 mbr-col-md-5':columnWidth==3}\">\n                <div class=\"image-block mbr-col-md-12 mbr-col-sm-12 mbr-m-auto\">\n                    <amp-img src=\"@PROJECT_PATH@/assets/images/research-1-1240x560.png\" layout=\"responsive\" width=\"620.4444444444445\" height=\"349\" alt=\"image\" class=\"mobirise-loader raised\">\n                        <div placeholder=\"\" class=\"placeholder\"></div>\n                        <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/research-1-1240x560.png\" alt=\"\" title=\"\">\n                    </amp-img>\n                </div>\n            </div>             \n        </div>\n    </div>\n</section>",
+          "_cid": "rDKqwdj1Jp",
+          "_anchor": "article3-b",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)",
+              "align-items": "center",
+              "display": "flex"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              "& when (@overlay)": {
+                ".mbr-overlay": {
+                  "background": "@overlayColor",
+                  "opacity": "@overlayOpacity"
+                }
+              }
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".title-block": {
+              "position": "relative"
+            },
+            ".float-card": {
+              "background-color": "@cardBg",
+              "@media (min-width: 991px)": {
+                "width": "100%",
+                "position": "absolute",
+                "top": "(@cardPosition * 1px)",
+                "left": "-200px"
+              }
+            },
+            ".mbr-p-5": {
+              "@media (max-width: 991px)": {
+                "padding": "2rem"
+              }
+            },
+            ".mbr-row": {
+              "@media (max-width: 992px)": {
+                ".image-wrap": {
+                  "padding-bottom": "2rem"
+                },
+                ".mbr-section-title": {
+                  "padding-bottom": "1rem"
+                }
+              }
+            },
+            ".mbr-row > *": {
+              "@media (max-width: 768px)": {
+                "padding": "0"
+              }
+            },
+            "@media (min-width: 992px)": {
+              ".image-block": {
+                "padding-left": "0",
+                "padding-right": "0"
+              },
+              ".mbr-row > *": {
+                "padding-left": "2rem",
+                "padding-right": "2rem"
+              },
+              ".mbr-row": {
+                "margin-left": "-2rem",
+                "margin-right": "-2rem"
+              },
+              ".mbr-pb-auto": {
+                "padding-bottom": "(@cardPosition * 0.5px)"
+              }
+            },
+            ".fs-11": {
+              "font-size": "1.1rem"
+            },
+            ".mbr-section-subtitle": {
+              "color": "#2969b0"
+            }
+          },
+          "_name": "article2",
+          "_customHTML": "<section class=\"article2\" group=\"Articles\" mbr-class=\"{'mbr-fullscreen': fullScreen}\" plugins=\"amp-main\">\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"15\" step=\"1\" value=\"4\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"15\" step=\"1\" value=\"4\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline=\"\" title=\"Content Width\" name=\"columnWidth\" min=\"1\" max=\"3\" step=\"1\" value=\"1\" required=\"\">\n    <input type=\"range\" inline=\"\" title=\"Card Position\" name=\"cardPosition\" min=\"120\" max=\"340\" step=\"20\" value=\"240\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n    <input type=\"checkbox\" title=\"Card Title\" name=\"showCardTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\">\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked=\"\">\n    <input type=\"checkbox\" title=\"Link\" name=\"showLink\" checked=\"\">\n    <!--  -->\n    <header condition=\"showTitle || showSubtitle || showText || showLink\">Align</header>\n    <select title=\"Title\" name=\"alignTitle\" condition=\"showTitle || showSubtitle || showText || showLink\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <select title=\"Card\" name=\"alignCard\" condition=\"showTitle || showSubtitle || showText || showLink\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>    \n    <header>Background</header>\n    <input type=\"color\" name=\"cardBg\" title=\"Card Background\" value=\"#efefef\">\n    <fieldset type=\"background\" name=\"bg\" required=\"\">\n        <input type=\"image\" title=\"Background Image\" value=\"../_images/background3.jpg\">\n        <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected=\"\">\n    </fieldset>\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked=\"\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container':!fullWidth,\n                     'container-fluid': fullWidth}\">\n        <div class=\"mbr-row mbr-pb-auto\">\n            <div class=\"image-wrap mbr-col-sm-12 mbr-flex\" mbr-class=\"{'mbr-col-lg-7 mbr-col-md-7':columnWidth==1,\n                             'mbr-col-lg-6 mbr-col-md-6':columnWidth==2,\n                             'mbr-col-lg-5 mbr-col-md-5':columnWidth==3}\">\n                <div class=\"image-block mbr-col-md-12 mbr-col-sm-12 mbr-m-auto\">\n                    <amp-img src=\"@PROJECT_PATH@/assets/images/warehouse-blue-1240x741.png\" layout=\"responsive\" width=\"619.0034843205575\" height=\"348\" alt=\"image\" class=\"mobirise-loader raised\">\n                        <div placeholder=\"\" class=\"placeholder\"></div>\n                        <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/warehouse-blue-1240x741.png\" alt=\"\" title=\"\">\n                    </amp-img>\n                </div>\n            </div>            \n            <div class=\"title-wrap title-block mbr-col-sm-12 mbr-flex flex-wrap\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5':columnWidth==1,\n                             'mbr-col-lg-6 mbr-col-md-6':columnWidth==2,\n                             'mbr-col-lg-7 mbr-col-md-7':columnWidth==3}\" mbr-if=\"showTitle || showSubtitle || showText || showLink\">\n                <h1 class=\"mbr-section-title mbr-fonts-style mbr-bolder mbr-pt-5\" mbr-class=\"{'align-left':alignTitle==1,\n                                'align-center':alignTitle==2,\n                                'align-right':alignTitle==3}\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">EXHAUST</h1>\n                <div class=\"float-card mbr-p-5\" mbr-class=\"{'align-left':alignCard==1,\n                                 'align-center':alignCard==2,\n                                 'align-right':alignCard==3}\">\n                    <h3 class=\"mbr-section-subtitle text-primary mbr-fonts-style mbr-pb-1 mbr-bolder\" mbr-theme-style=\"display-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">Lorem ipsum</h3>\n                    <h2 class=\"mbr-section-cardtitle mbr-fonts-style mbr-bolder\" mbr-theme-style=\"display-7\" mbr-if=\"showCardTitle\" data-app-selector=\".mbr-section-subtitle\">INVENTARIFY - FOR WAREHOUSE</h2>    \n                    <p class=\"mbr-text mbr-fonts-style fs-11 mbr-regular\" mbr-class=\"{'mbr-pt-2': showCardTitle || showSubtitle}\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">Solution that will help big and small business to control there warehouse and focus on main goals like packege and service.</p>\n                    <p class=\"link-ws-black link-primary mbr-bold\" mbr-class=\"{'mbr-pt-4':showSubtitle||showCardTitle||showText}\" mbr-if=\"showLink\" mbr-theme-style=\"display-4\" data-app-selector=\".link-ws-black a\">\n                        <a href=\"https://prorsuma.github.io/inventarify/\" class=\"text-warning\">— View Project</a>\n                    </p>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "rDKrNDJeEg",
+          "_anchor": "article2-c",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)",
+              "align-items": "center",
+              "display": "flex"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              "& when (@overlay)": {
+                ".mbr-overlay": {
+                  "background": "@overlayColor",
+                  "opacity": "@overlayOpacity"
+                }
+              }
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".title-block": {
+              "position": "relative"
+            },
+            ".float-card": {
+              "background-color": "@cardBg",
+              "@media (min-width: 991px)": {
+                "width": "100%",
+                "position": "absolute",
+                "top": "(@cardPosition * 1px)",
+                "right": "-200px",
+                "z-index": "1"
+              }
+            },
+            ".mbr-p-5": {
+              "@media (max-width: 991px)": {
+                "padding": "2rem"
+              }
+            },
+            ".mbr-row": {
+              "@media (max-width: 992px)": {
+                ".image-wrap": {
+                  "padding-bottom": "2rem"
+                },
+                ".mbr-section-title": {
+                  "padding-bottom": "1rem"
+                }
+              }
+            },
+            ".mbr-row > *": {
+              "@media (max-width: 768px)": {
+                "padding": "0"
+              }
+            },
+            "@media (min-width: 992px)": {
+              ".image-block": {
+                "padding-left": "0",
+                "padding-right": "0"
+              },
+              ".mbr-row > *": {
+                "padding-left": "2rem",
+                "padding-right": "2rem"
+              },
+              ".mbr-row": {
+                "margin-left": "-2rem",
+                "margin-right": "-2rem"
+              },
+              ".mbr-pb-auto": {
+                "padding-bottom": "(@cardPosition * 0.5px)"
+              }
+            },
+            ".fs-11": {
+              "font-size": "1.1rem"
+            }
+          },
+          "_name": "article3",
+          "_customHTML": "<section class=\"article3\" group=\"Articles\" mbr-class=\"{'mbr-fullscreen': fullScreen}\" plugins=\"amp-main\">\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"15\" step=\"1\" value=\"4\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"15\" step=\"1\" value=\"4\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline=\"\" title=\"Content Width\" name=\"columnWidth\" min=\"1\" max=\"3\" step=\"1\" value=\"1\" required=\"\">\n    <input type=\"range\" inline=\"\" title=\"Card Position\" name=\"cardPosition\" min=\"120\" max=\"340\" step=\"20\" value=\"240\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n    <input type=\"checkbox\" title=\"Card Title\" name=\"showCardTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\">\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked=\"\">\n    <input type=\"checkbox\" title=\"Link\" name=\"showLink\" checked=\"\">\n    <!--  -->\n    <header condition=\"showTitle || showSubtitle || showText || showLink\">Align</header>\n    <select title=\"Title\" name=\"alignTitle\" condition=\"showTitle || showSubtitle || showText || showLink\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <select title=\"Card\" name=\"alignCard\" condition=\"showTitle || showSubtitle || showText || showLink\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>    \n    <header>Background</header>\n    <input type=\"color\" name=\"cardBg\" title=\"Card Background\" value=\"#efefef\">\n    <fieldset type=\"background\" name=\"bg\" required=\"\">\n        <input type=\"image\" title=\"Background Image\" value=\"../_images/background3.jpg\">\n        <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected=\"\">\n    </fieldset>\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked=\"\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container':!fullWidth,\n                     'container-fluid': fullWidth}\">\n        <div class=\"mbr-row mbr-pb-auto\">           \n            <div class=\"title-wrap title-block mbr-col-sm-12 mbr-flex flex-wrap\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5':columnWidth==1,\n                             'mbr-col-lg-6 mbr-col-md-6':columnWidth==2,\n                             'mbr-col-lg-7 mbr-col-md-7':columnWidth==3}\" mbr-if=\"showTitle || showSubtitle || showText || showLink\">\n                <h1 class=\"mbr-section-title mbr-fonts-style mbr-bolder mbr-pt-5\" mbr-class=\"{'align-left':alignTitle==1,\n                                'align-center':alignTitle==2,\n                                'align-right':alignTitle==3}\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">CAR PAINT</h1>\n                <div class=\"float-card mbr-p-5\" mbr-class=\"{'align-left':alignCard==1,\n                                 'align-center':alignCard==2,\n                                 'align-right':alignCard==3}\">\n                    <h3 class=\"mbr-section-subtitle text-primary mbr-fonts-style mbr-pb-1 mbr-bolder\" mbr-theme-style=\"display-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">Lorem ipsum</h3>\n                    <h2 class=\"mbr-section-cardtitle mbr-fonts-style mbr-bolder\" mbr-theme-style=\"display-7\" mbr-if=\"showCardTitle\" data-app-selector=\".mbr-section-subtitle\">REACTORY - FOR AUTO</h2>    \n                    <p class=\"mbr-text mbr-fonts-style fs-11 mbr-regular\" mbr-class=\"{'mbr-pt-2': showCardTitle || showSubtitle}\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">Great platform where all business categories that are relaited to auto industry, such as : car service, rent, dealers, shops and other, can be sure thar they have the best product.</p>\n                    <p class=\"link-ws-black link-primary mbr-bold\" mbr-class=\"{'mbr-pt-4':showSubtitle||showCardTitle||showText}\" mbr-if=\"showLink\" mbr-theme-style=\"display-4\" data-app-selector=\".link-ws-black a\">\n                        <a href=\"https://prorsuma.github.io/Reactory/\" class=\"text-warning\">— View Project</a>\n                    </p>\n                </div>\n            </div>\n            <div class=\"image-wrap mbr-col-sm-12 mbr-flex\" mbr-class=\"{'mbr-col-lg-7 mbr-col-md-7':columnWidth==1,\n                             'mbr-col-lg-6 mbr-col-md-6':columnWidth==2,\n                             'mbr-col-lg-5 mbr-col-md-5':columnWidth==3}\">\n                <div class=\"image-block mbr-col-md-12 mbr-col-sm-12 mbr-m-auto\">\n                    <amp-img src=\"@PROJECT_PATH@/assets/images/auto-blue-1-1240x596.png\" layout=\"responsive\" width=\"619.2352941176471\" height=\"348\" alt=\"image\" class=\"mobirise-loader raised\">\n                        <div placeholder=\"\" class=\"placeholder\"></div>\n                        <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/auto-blue-1-1240x596.png\" alt=\"\" title=\"\">\n                    </amp-img>\n                </div>\n            </div>             \n        </div>\n    </div>\n</section>",
+          "_cid": "rDKsJt7WCO",
+          "_anchor": "article3-f",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)",
+              "align-items": "center",
+              "display": "flex"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              "& when (@overlay)": {
+                ".mbr-overlay": {
+                  "background": "@overlayColor",
+                  "opacity": "@overlayOpacity"
+                }
+              }
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".title-block": {
+              "position": "relative"
+            },
+            ".float-card": {
+              "background-color": "@cardBg",
+              "@media (min-width: 991px)": {
+                "width": "100%",
+                "position": "absolute",
+                "top": "(@cardPosition * 1px)",
+                "left": "-200px"
+              }
+            },
+            ".mbr-p-5": {
+              "@media (max-width: 991px)": {
+                "padding": "2rem"
+              }
+            },
+            ".mbr-row": {
+              "@media (max-width: 992px)": {
+                ".image-wrap": {
+                  "padding-bottom": "2rem"
+                },
+                ".mbr-section-title": {
+                  "padding-bottom": "1rem"
+                }
+              }
+            },
+            ".mbr-row > *": {
+              "@media (max-width: 768px)": {
+                "padding": "0"
+              }
+            },
+            "@media (min-width: 992px)": {
+              ".image-block": {
+                "padding-left": "0",
+                "padding-right": "0"
+              },
+              ".mbr-row > *": {
+                "padding-left": "2rem",
+                "padding-right": "2rem"
+              },
+              ".mbr-row": {
+                "margin-left": "-2rem",
+                "margin-right": "-2rem"
+              },
+              ".mbr-pb-auto": {
+                "padding-bottom": "(@cardPosition * 0.5px)"
+              }
+            },
+            ".fs-11": {
+              "font-size": "1.1rem"
+            }
+          },
+          "_name": "article2",
+          "_customHTML": "<section class=\"article2\" group=\"Articles\" mbr-class=\"{'mbr-fullscreen': fullScreen}\" plugins=\"amp-main\">\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"15\" step=\"1\" value=\"4\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"15\" step=\"1\" value=\"4\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline=\"\" title=\"Content Width\" name=\"columnWidth\" min=\"1\" max=\"3\" step=\"1\" value=\"1\" required=\"\">\n    <input type=\"range\" inline=\"\" title=\"Card Position\" name=\"cardPosition\" min=\"120\" max=\"340\" step=\"20\" value=\"240\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n    <input type=\"checkbox\" title=\"Card Title\" name=\"showCardTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\">\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked=\"\">\n    <input type=\"checkbox\" title=\"Link\" name=\"showLink\" checked=\"\">\n    <!--  -->\n    <header condition=\"showTitle || showSubtitle || showText || showLink\">Align</header>\n    <select title=\"Title\" name=\"alignTitle\" condition=\"showTitle || showSubtitle || showText || showLink\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <select title=\"Card\" name=\"alignCard\" condition=\"showTitle || showSubtitle || showText || showLink\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>    \n    <header>Background</header>\n    <input type=\"color\" name=\"cardBg\" title=\"Card Background\" value=\"#efefef\">\n    <fieldset type=\"background\" name=\"bg\" required=\"\">\n        <input type=\"image\" title=\"Background Image\" value=\"../_images/background3.jpg\">\n        <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected=\"\">\n    </fieldset>\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked=\"\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container':!fullWidth,\n                     'container-fluid': fullWidth}\">\n        <div class=\"mbr-row mbr-pb-auto\">\n            <div class=\"image-wrap mbr-col-sm-12 mbr-flex\" mbr-class=\"{'mbr-col-lg-7 mbr-col-md-7':columnWidth==1,\n                             'mbr-col-lg-6 mbr-col-md-6':columnWidth==2,\n                             'mbr-col-lg-5 mbr-col-md-5':columnWidth==3}\">\n                <div class=\"image-block mbr-col-md-12 mbr-col-sm-12 mbr-m-auto\">\n                    <amp-img src=\"@PROJECT_PATH@/assets/images/restourans-blue-1240x642.png\" layout=\"responsive\" width=\"619.3450292397661\" height=\"348\" alt=\"image\" class=\"mobirise-loader raised\">\n                        <div placeholder=\"\" class=\"placeholder\"></div>\n                        <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/restourans-blue-1240x642.png\" alt=\"\" title=\"\">\n                    </amp-img>\n                </div>\n            </div>            \n            <div class=\"title-wrap title-block mbr-col-sm-12 mbr-flex flex-wrap\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5':columnWidth==1,\n                             'mbr-col-lg-6 mbr-col-md-6':columnWidth==2,\n                             'mbr-col-lg-7 mbr-col-md-7':columnWidth==3}\" mbr-if=\"showTitle || showSubtitle || showText || showLink\">\n                <h1 class=\"mbr-section-title mbr-fonts-style mbr-bolder mbr-pt-5\" mbr-class=\"{'align-left':alignTitle==1,\n                                'align-center':alignTitle==2,\n                                'align-right':alignTitle==3}\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">EXHAUST</h1>\n                <div class=\"float-card mbr-p-5\" mbr-class=\"{'align-left':alignCard==1,\n                                 'align-center':alignCard==2,\n                                 'align-right':alignCard==3}\">\n                    <h3 class=\"mbr-section-subtitle text-primary mbr-fonts-style mbr-pb-1 mbr-bolder\" mbr-theme-style=\"display-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">Lorem ipsum</h3>\n                    <h2 class=\"mbr-section-cardtitle mbr-fonts-style mbr-bolder\" mbr-theme-style=\"display-7\" mbr-if=\"showCardTitle\" data-app-selector=\".mbr-section-subtitle\">RESTIKS &nbsp;- FOR RESTOURANS</h2>    \n                    <p class=\"mbr-text mbr-fonts-style fs-11 mbr-regular\" mbr-class=\"{'mbr-pt-2': showCardTitle || showSubtitle}\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">Uniqe service for industry, reservation, order forming, bill splitting/printing and much more in one great solution.</p>\n                    <p class=\"link-ws-black link-primary mbr-bold\" mbr-class=\"{'mbr-pt-4':showSubtitle||showCardTitle||showText}\" mbr-if=\"showLink\" mbr-theme-style=\"display-4\" data-app-selector=\".link-ws-black a\">\n                        <a href=\"https://prorsuma.github.io/restiks/\" class=\"text-warning\">— View Project</a>\n                    </p>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "rDKsKhmeMK",
+          "_anchor": "article2-g",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)",
+              "align-items": "center",
+              "display": "flex"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              "& when (@overlay)": {
+                ".mbr-overlay": {
+                  "background": "@overlayColor",
+                  "opacity": "@overlayOpacity"
+                }
+              }
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".title-block": {
+              "position": "relative"
+            },
+            ".float-card": {
+              "background-color": "@cardBg",
+              "@media (min-width: 991px)": {
+                "width": "100%",
+                "position": "absolute",
+                "top": "(@cardPosition * 1px)",
+                "right": "-200px",
+                "z-index": "1"
+              }
+            },
+            ".mbr-p-5": {
+              "@media (max-width: 991px)": {
+                "padding": "2rem"
+              }
+            },
+            ".mbr-row": {
+              "@media (max-width: 992px)": {
+                ".image-wrap": {
+                  "padding-bottom": "2rem"
+                },
+                ".mbr-section-title": {
+                  "padding-bottom": "1rem"
+                }
+              }
+            },
+            ".mbr-row > *": {
+              "@media (max-width: 768px)": {
+                "padding": "0"
+              }
+            },
+            "@media (min-width: 992px)": {
+              ".image-block": {
+                "padding-left": "0",
+                "padding-right": "0"
+              },
+              ".mbr-row > *": {
+                "padding-left": "2rem",
+                "padding-right": "2rem"
+              },
+              ".mbr-row": {
+                "margin-left": "-2rem",
+                "margin-right": "-2rem"
+              },
+              ".mbr-pb-auto": {
+                "padding-bottom": "(@cardPosition * 0.5px)"
+              }
+            },
+            ".fs-11": {
+              "font-size": "1.1rem"
+            }
+          },
+          "_name": "article3",
+          "_customHTML": "<section class=\"article3\" group=\"Articles\" mbr-class=\"{'mbr-fullscreen': fullScreen}\" plugins=\"amp-main\">\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"15\" step=\"1\" value=\"4\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"15\" step=\"1\" value=\"4\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline=\"\" title=\"Content Width\" name=\"columnWidth\" min=\"1\" max=\"3\" step=\"1\" value=\"1\" required=\"\">\n    <input type=\"range\" inline=\"\" title=\"Card Position\" name=\"cardPosition\" min=\"120\" max=\"340\" step=\"20\" value=\"240\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n    <input type=\"checkbox\" title=\"Card Title\" name=\"showCardTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\">\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked=\"\">\n    <input type=\"checkbox\" title=\"Link\" name=\"showLink\" checked=\"\">\n    <!--  -->\n    <header condition=\"showTitle || showSubtitle || showText || showLink\">Align</header>\n    <select title=\"Title\" name=\"alignTitle\" condition=\"showTitle || showSubtitle || showText || showLink\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <select title=\"Card\" name=\"alignCard\" condition=\"showTitle || showSubtitle || showText || showLink\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>    \n    <header>Background</header>\n    <input type=\"color\" name=\"cardBg\" title=\"Card Background\" value=\"#efefef\">\n    <fieldset type=\"background\" name=\"bg\" required=\"\">\n        <input type=\"image\" title=\"Background Image\" value=\"../_images/background3.jpg\">\n        <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected=\"\">\n    </fieldset>\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked=\"\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container':!fullWidth,\n                     'container-fluid': fullWidth}\">\n        <div class=\"mbr-row mbr-pb-auto\">           \n            <div class=\"title-wrap title-block mbr-col-sm-12 mbr-flex flex-wrap\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5':columnWidth==1,\n                             'mbr-col-lg-6 mbr-col-md-6':columnWidth==2,\n                             'mbr-col-lg-7 mbr-col-md-7':columnWidth==3}\" mbr-if=\"showTitle || showSubtitle || showText || showLink\">\n                <h1 class=\"mbr-section-title mbr-fonts-style mbr-bolder mbr-pt-5\" mbr-class=\"{'align-left':alignTitle==1,\n                                'align-center':alignTitle==2,\n                                'align-right':alignTitle==3}\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">CAR PAINT</h1>\n                <div class=\"float-card mbr-p-5\" mbr-class=\"{'align-left':alignCard==1,\n                                 'align-center':alignCard==2,\n                                 'align-right':alignCard==3}\">\n                    <h3 class=\"mbr-section-subtitle text-primary mbr-fonts-style mbr-pb-1 mbr-bolder\" mbr-theme-style=\"display-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">Lorem ipsum</h3>\n                    <h2 class=\"mbr-section-cardtitle mbr-fonts-style mbr-bolder\" mbr-theme-style=\"display-7\" mbr-if=\"showCardTitle\" data-app-selector=\".mbr-section-subtitle\">STRIDITI - FOR HOTELS</h2>    \n                    <p class=\"mbr-text mbr-fonts-style fs-11 mbr-regular\" mbr-class=\"{'mbr-pt-2': showCardTitle || showSubtitle}\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">Product that can attrach every hotel owner, automatize simple task, monitor routin working processes - without comming to hotel.Stay in touch with your business.</p>\n                    <p class=\"link-ws-black link-primary mbr-bold\" mbr-class=\"{'mbr-pt-4':showSubtitle||showCardTitle||showText}\" mbr-if=\"showLink\" mbr-theme-style=\"display-4\" data-app-selector=\".link-ws-black a\">\n                        <a href=\"https://prorsuma.github.io/striditi/\" class=\"text-warning\">— View Project</a>\n                    </p>\n                </div>\n            </div>\n            <div class=\"image-wrap mbr-col-sm-12 mbr-flex\" mbr-class=\"{'mbr-col-lg-7 mbr-col-md-7':columnWidth==1,\n                             'mbr-col-lg-6 mbr-col-md-6':columnWidth==2,\n                             'mbr-col-lg-5 mbr-col-md-5':columnWidth==3}\">\n                <div class=\"image-block mbr-col-md-12 mbr-col-sm-12 mbr-m-auto\">\n                    <amp-img src=\"@PROJECT_PATH@/assets/images/hotel-blue-1-1240x587.png\" layout=\"responsive\" width=\"618.8315565031983\" height=\"348\" alt=\"image\" class=\"mobirise-loader raised\">\n                        <div placeholder=\"\" class=\"placeholder\"></div>\n                        <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/hotel-blue-1-1240x587.png\" alt=\"\" title=\"\">\n                    </amp-img>\n                </div>\n            </div>             \n        </div>\n    </div>\n</section>",
+          "_cid": "rDKvqc4n5v",
+          "_anchor": "article3-h",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
